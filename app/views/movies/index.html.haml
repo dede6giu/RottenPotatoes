@@ -1,0 +1,17 @@
+%p{ :style => "color: green" }= notice
+- content_for :title, "Movies"
+%h1 All Movies
+#movies
+  .row 
+    .col-8 Movie Title 
+    .col-2 Rating
+    .col-2 Release Date
+  - @movies.each do |movie|
+    // = render movie
+    .row 
+      .col-8= link_to movie.title, movie_path(movie)
+      .col-2= movie.rating 
+      .col-2= movie.release_date.strftime('%F')
+%br
+
+= link_to "New movie", new_movie_path

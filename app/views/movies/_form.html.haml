@@ -1,0 +1,42 @@
+= form_with(model: movie) do |form|
+  - if movie.errors.any?
+    %div{:style => "color: red"}
+      %h2
+        = pluralize(movie.errors.count, "error")
+        prohibited this movie from being saved:
+      %ul
+        - movie.errors.each do |error|
+          %li= error.full_message
+  %div
+    = form.label :title, style: "display: block"
+    = form.text_field :title, :class => 'form-control'
+  %div
+    = form.label :rating, style: "display: block"
+    = form.select :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17', 'M'], :class => 'form-control'
+  %div
+    = form.label :description, style: "display: block"
+    = form.textarea :description, :class => 'form-control'
+  %div
+    = form.label :release_date, style: "display: block"
+    = form.date_field :release_date, :class => 'form-control'
+  %br
+  %div
+    = form.submit
+
+
+// = form_tag movies_path, :method => :post, :class => 'form' do 
+//   %br
+//   = label :movie, :title, 'Title', :class => 'form-control'
+//   = text_field :movie, :title, :class => 'form-control'
+//   %br
+//   = label :movie, :rating, 'Rating', :class => 'form-control'
+//   = select :movie, :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17', 'M'], :class => 'form-control'
+//   %br
+//   = label :movie, :release_date, :class => 'form-control'
+//   = date_select :movie, :release_date, :class => 'form-control'
+//   %br
+//   %br
+//   = label :movie, :description, 'Description', :class => 'form-control'
+//   = text_field :movie, :description, :class => 'form-control'
+//   %br
+//   = submit_tag 'Save Changes'
