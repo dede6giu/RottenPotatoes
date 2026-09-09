@@ -8,12 +8,8 @@
   %div= @movie.description || "This movie does not have a set description."
 %br
 
-= link_to 'Edit this movie', edit_movie_path(@movie), :class => 'btn'
-= link_to 'Back to movie list', movies_path, :class => 'btn btn-primary'
-
-// = render @movie
-// %div
-//   = link_to "Edit this movie", edit_movie_path(@movie)
-//   |
-//   \#{link_to "Back to movies", movies_path}
-//   \#{button_to "Destroy this movie", @movie, method: :delete}
+%div
+  = link_to "Edit this movie", edit_movie_path(@movie)
+  |
+  \#{link_to "Back to movies", movies_path}
+  \#{button_to "Destroy this movie", @movie, method: :delete}

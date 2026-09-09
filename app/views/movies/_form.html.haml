@@ -9,16 +9,16 @@
           %li= error.full_message
   %div
     = form.label :title, style: "display: block"
-    = form.text_field :title, :class => 'form-control'
+    = form.text_field :title
   %div
     = form.label :rating, style: "display: block"
-    = form.select :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17', 'M'], :class => 'form-control'
+    = form.select :rating, Movie::RATINGS
   %div
     = form.label :description, style: "display: block"
-    = form.textarea :description, :class => 'form-control'
+    = form.textarea :description
   %div
     = form.label :release_date, style: "display: block"
-    = form.date_field :release_date, :class => 'form-control'
+    = form.date_field :release_date
   %br
   %div
     = form.submit

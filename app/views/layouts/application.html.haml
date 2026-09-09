@@ -10,7 +10,7 @@
     = csrf_meta_tags
     = csp_meta_tag
     = yield :head
-    %link{:href => "https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css", :rel => "stylesheet"}
+    // %link{:href => "https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css", :rel => "stylesheet"}
     %link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
     %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
     %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
@@ -22,4 +22,5 @@
         .alert.alert-info.text-center= flash[:notice]
       - elsif flash[:alert]
         .alert.alert-danger.text-center= flash[:alert]
-    = yield
+    #main
+      = yield

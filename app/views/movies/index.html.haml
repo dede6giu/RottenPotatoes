@@ -2,16 +2,19 @@
 - content_for :title, "Movies"
 %h1 All Movies
 #movies
-  .row 
-    .col-8 Movie Title 
-    .col-2 Rating
-    .col-2 Release Date
-  - @movies.each do |movie|
-    // = render movie
-    .row 
-      .col-8= link_to movie.title, movie_path(movie)
-      .col-2= movie.rating 
-      .col-2= movie.release_date.strftime('%F')
+  %table
+    %tr 
+      %th= link_to "Movie Title", movies_path(sort: 'title')
+      %th= link_to "Rating", movies_path(sort: 'rating')
+      %th= link_to "Release Date", movies_path(sort: 'release_date')
+      %th Description
+    - @movies.each do |movie|
+      %tr
+        %th= link_to movie.title, movie_path(movie)
+        %th= movie.rating 
+        %th= movie.release_date.strftime('%F')
+        %th= movie.description
+
 %br
 
 = link_to "New movie", new_movie_path
