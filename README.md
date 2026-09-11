@@ -1,24 +1,17 @@
-# README
+# RottenPotatoes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Movie database HTML application based on the guidance of David Patterson's [Engineering Software as a Service](https://saasbook.info/) book, and the CIC0105 UnB classes.
 
-Things you may want to cover:
+## How to Execute
 
-* Ruby version
+- Verify [Ruby](https://www.ruby-lang.org/en/) is installed in your machine.
 
-* System dependencies
+```bash
+ruby --version
+```
 
-* Configuration
+- Install any necessary gems with `bundle install` or your OS equivalent.
 
-* Database creation
+- On a fresh terminal, run `bin/rails server` to start the server.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- The server should be on `localhost:3000`. Have fun!
