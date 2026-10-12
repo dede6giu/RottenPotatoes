@@ -5,7 +5,9 @@ class MoviesController < ApplicationController
   def index
     allowed_sorts = %w[title rating release_date]
     @sort = params[:sort] if allowed_sorts.include?(params[:sort])
-    @movies = @sort ? Movie.all.order(@sort) : Movie.all
+    @sort_order = params[:sort_order] == "desc" ? "desc" : "asc"
+
+    @movies = @movies.order(sort: @sort_order)
   end
 
   # GET /movies/1 or /movies/1.json
