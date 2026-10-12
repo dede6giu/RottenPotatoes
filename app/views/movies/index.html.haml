@@ -1,6 +1,26 @@
 %p{ :style => "color: green" }= notice
 - content_for :title, "Movies"
 %h1 All Movies
+
+- def sort_link(label, column, current_sort, order, id)
+  next_order = (current_sort == column && order == "asc") ? "desc" : "asc"
+  icon = next_order == "asc" ? " ▲" : " ▼"
+  link_to label + icon, movies_path(sort: column, sort_order: next_order), id: id
+  end
+= form_with url: movies_path, method: :get, local: true do |form|
+  %fieldset
+    %legend Filtrar por classificação:
+    - @ratings.each do |rating|
+      %label
+        = check_box_tag "ratings[#{rating}]",
+          rating,
+          @selected_ratings.include?(rating),
+          id: nil
+        = rating
+  = form.hidden_field :sort, value: @sort
+  = form.hidden_field :sort_order, value: @sort_order
+  = form.submit "Refresh"
+
 #movies
   %table
     %tr 
@@ -17,4 +37,4 @@
 
 %br
 
-= link_to "New movie", new_movie_path
+= link_to "New movie", new_movie_path, id: :new_movie
